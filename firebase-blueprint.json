@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Project",
+      "description": "An analytics project containing data and configuration.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the project" },
+        "name": { "type": "string", "description": "Display name of the project" },
+        "sheetUrl": { "type": "string", "description": "URL of the Google Sheet" },
+        "lastSynced": { "type": "string", "format": "date-time", "description": "ISO timestamp of last sync" },
+        "data": { "type": "string", "description": "Serialized JSON data from the sheet" },
+        "uid": { "type": "string", "description": "Owner UID" }
+      },
+      "required": ["id", "name", "uid"]
+    },
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Private user information.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "user"] }
+      },
+      "required": ["email"]
+    }
+  },
+  "firestore": {
+    "/projects/{projectId}": {
+      "schema": "Project",
+      "description": "User projects"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Private user profiles"
+    }
+  }
+}

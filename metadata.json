@@ -1,0 +1,6 @@
+{
+  "name": "Axximum Analytics Dashboard",
+  "description": "A professional analytics dashboard with server-side state persistence, Google Sheets synchronization, and CSV data processing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
